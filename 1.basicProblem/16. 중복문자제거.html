@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = new Set();
+
+        let answerStr = "";
+
+        for (let i = 0; i < s.length; i++) {
+          answer.add(s[i]);
+        }
+
+        answer = [...answer];
+
+        for (str in answer) {
+          answerStr += answer[str];
+        }
+
+        return answerStr;
+      }
+      console.log(solution("ksekkset"));
+    </script>
+  </body>
+</html>

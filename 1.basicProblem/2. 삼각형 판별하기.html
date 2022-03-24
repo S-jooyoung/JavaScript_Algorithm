@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = "YES";
+        let length_list = [a, b, c];
+
+        length_list.sort((a, b) => a - b);
+
+        if (length_list[0] + length_list[1] <= length_list[2]) {
+          answer = "NO";
+        }
+
+        return answer;
+      }
+
+      console.log(solution(6, 7, 11));
+    </script>
+  </body>
+</html>

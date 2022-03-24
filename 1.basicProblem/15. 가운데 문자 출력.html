@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        let middle = 0;
+
+        if (s.length % 2 === 0) {
+          middle = s.length / 2;
+          answer = s.slice(middle - 1, middle + 1);
+          return answer;
+        }
+
+        middle = parseInt(s.length / 2);
+        answer = s.slice(middle, middle + 1);
+
+        return answer;
+      }
+      console.log(solution("study"));
+    </script>
+  </body>
+</html>
