@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = "";
+
+        for (let x of str) {
+          if (!isNaN(x)) answer += x;
+        }
+        // const regexp = /[0-9]/gi;
+        // const Number = str.match(regexp);
+        // const maxNum = 100000000;
+
+        // let answer = 0;
+
+        // console.log(Number);
+
+        // for (let i = 0; i < Number.length; i++) {
+        //   if (answer <= maxNum) {
+        //     answer += Number[i] * 10 ** (Number.length - 1 - i);
+        //   }
+        // }
+
+        return parseInt(answer);
+      }
+
+      let str = "g0en2T0s8eSoft";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

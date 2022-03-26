@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+
+        s = s.toLowerCase().replace(/[^a-z]/g, "");
+
+        if (s.split("").reverse().join("") !== s) return "No";
+
+        // const regexp = /[a-z]/gi;
+        // const Str = s.match(regexp);
+
+        // let answer = "YES";
+
+        // for (let i = 0; i < Str.length / 2; i++) {
+        //   if (Str[i].toUpperCase() !== Str[Str.length - 1 - i].toUpperCase()) {
+        //     answer = "NO";
+        //     break;
+        //   }
+        // }
+
+        return answer;
+      }
+
+      let str = "found7, time: study; Yduts; emit, 7Dnuof";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

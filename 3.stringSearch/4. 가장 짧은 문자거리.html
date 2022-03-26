@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      //틀린문제
+      function solution(s, t) {
+        let answer = [];
+        let bigNum = 1000;
+
+        for (let x of s) {
+          if (x === t) {
+            bigNum = 0;
+            answer.push(bigNum);
+          } else {
+            bigNum++;
+            answer.push(bigNum);
+          }
+        }
+
+        bigNum = 1000;
+
+        for (let i = s.length - 1; i >= 0; i--) {
+          if (s[i] === t) {
+            bigNum = 0;
+          } else {
+            bigNum++;
+            answer[i] = Math.min(answer[i], bigNum);
+          }
+        }
+        // let answer = [];
+        // let count = 0;
+        // answer[0] = 1001;
+
+        // for (let i = 0; i < s.length; i++) {
+        //   count++;
+        //   answer[i] = count;
+        //   if (s[i] === t) {
+        //     count = 0;
+        //     answer[i] = count;
+        //   }
+        // }
+
+        // answer[s.length - 1] = 1000;
+        // count = 0;
+
+        // for (let j = s.length - 1; j >= 0; j--) {
+        //   count++;
+
+        //   if (answer[j] > count) {
+        //     answer[j] = count;
+        //   }
+        //   if (s[j] === t) {
+        //     count = 0;
+        //     answer[j] = count;
+        //   }
+        // }
+
+        return answer;
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>
