@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer;
+        let max = Number.MIN_SAFE_INTEGER;
+        let sum = 0;
+        let numList = [];
+
+        for (let i = 0; i < 7; i++) {
+          sum = arr[i]
+            .toString()
+            .split("")
+            .reduce((a, b) => a + Number(b), 0);
+
+          // numList = String(arr[i]).split("");
+
+          // for (let j = 0; j < numList.length; j++) {
+          //   sum += parseInt(numList[j]);
+          // }
+
+          if (max < sum) {
+            max = sum;
+            answer = arr[i];
+          } else if (max === sum) answer = Math.max(answer, arr[i]);
+
+          sum = 0;
+        }
+
+        return answer;
+      }
+
+      let arr = [128, 460, 603, 40, 521, 137, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>
