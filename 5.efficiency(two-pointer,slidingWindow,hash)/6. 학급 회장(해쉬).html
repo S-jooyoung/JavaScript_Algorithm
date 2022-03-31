@@ -8,6 +8,38 @@
       function solution(s) {
         let answer;
 
+        // Map으로 풀기(Hash는 Map이 정석이긴하다.)
+        let sH = new Map();
+        let max = 0;
+
+        for (let x of s) {
+          if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+          else sH.set(x, 1);
+        }
+
+        for (let [key, value] of sH) {
+          if (max < value) {
+            max = value;
+            answer = key;
+          }
+        }
+        //객체로 문제풀기
+        // let countName = Array.from(s).reduce((prev, curr) => {
+        //   if (curr in prev) prev[curr]++;
+        //   else prev[curr] = 1;
+
+        //   return prev;
+        // }, {});
+
+        // let max = 0;
+
+        // for (let x in countName) {
+        //   if (max < countName[x]) {
+        //     max = countName[x];
+        //     answer = x;
+        //   }
+        // }
+
         return answer;
       }
 

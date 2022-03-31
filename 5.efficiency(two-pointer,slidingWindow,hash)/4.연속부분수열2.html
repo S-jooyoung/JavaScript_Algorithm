@@ -5,8 +5,20 @@
   </head>
   <body>
     <script>
+      //틀린문제
       function solution(m, arr) {
         let answer = 0;
+        let sum = 0;
+        lt = 0;
+
+        for (rt = 0; rt < arr.length; rt++) {
+          sum += arr[rt];
+          while (sum > m) {
+            sum -= arr[lt++];
+          }
+
+          answer += rt - lt + 1;
+        }
 
         return answer;
       }

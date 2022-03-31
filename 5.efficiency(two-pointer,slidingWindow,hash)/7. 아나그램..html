@@ -6,7 +6,38 @@
   <body>
     <script>
       function solution(str1, str2) {
-        let answer = "YES";
+        let answer = "Yes";
+
+        let sH = new Map();
+
+        for (let x of str1) {
+          if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+          else sH.set(x, 1);
+        }
+
+        for (let x of str2) {
+          if (!sH.has(x) || sH.get(x) === 0) return "No";
+          sH.set(x, sH.get(x) - 1);
+        }
+
+        // 내풀이
+        // let sH1 = new Map();
+        // let sH2 = new Map();
+        // let answer = "YES";
+
+        // for (x of str1) {
+        //   if (sH1.has(x)) sH1.set(x, sH1.get(x) + 1);
+        //   else sH1.set(x, 1);
+        // }
+
+        // for (x of str2) {
+        //   if (sH2.has(x)) sH2.set(x, sH2.get(x) + 1);
+        //   else sH2.set(x, 1);
+        // }
+
+        // for (let [key, value] of sH1) {
+        //   if (sH1.get(key) !== sH2.get(key)) return "NO";
+        // }
 
         return answer;
       }
