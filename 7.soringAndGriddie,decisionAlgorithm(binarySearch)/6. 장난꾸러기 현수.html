@@ -7,7 +7,12 @@
     <script>
       function solution(arr) {
         let answer = [];
+        let wrongArr = [...arr];
+        let correctArr = arr.sort((a, b) => a - b);
 
+        for (let i = 0; i < arr.length; i++) {
+          if (correctArr[i] !== wrongArr[i]) answer.push(i + 1);
+        }
         return answer;
       }
 

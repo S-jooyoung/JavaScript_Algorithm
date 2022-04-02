@@ -8,6 +8,26 @@
       function solution(arr) {
         let answer = arr;
 
+        for (let i = 0; i < arr.length; i++) {
+          let tmp = arr[i];
+          let j;
+          for (j = i - 1; j >= 0; j--) {
+            if (arr[j] > tmp) arr[j + 1] = arr[j];
+            else break;
+          }
+          arr[j + 1] = tmp;
+        }
+        // for (let i = 1; i < arr.length; i++) {
+        //   let memory = i;
+        //   for (let j = i - 1; j >= 0; j--) {
+        //     if (arr[memory] < arr[j]) {
+        //       let temp = arr[memory];
+        //       arr[memory] = arr[j];
+        //       arr[j] = temp;
+        //       memory = memory - 1;
+        //     }
+        //   }
+        // }
         return answer;
       }
 
