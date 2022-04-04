@@ -7,6 +7,26 @@
     <script>
       function solution(arr) {
         let answer = "NO";
+        let flag = 0;
+        let totalSum = arr.reduce((a, b) => a + b);
+        let n = arr.length;
+
+        function DFS(L, sum) {
+          if (flag) return;
+
+          console.log(answer);
+          if (L === n) {
+            if (totalSum - sum === sum) {
+              answer = "YES";
+              flag = 1;
+            }
+          } else {
+            DFS(L + 1, sum + arr[L]);
+            DFS(L + 1, sum);
+          }
+        }
+
+        DFS(0, 0);
 
         return answer;
       }
