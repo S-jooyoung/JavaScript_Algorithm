@@ -10,6 +10,7 @@
         n = arr.length;
         let ch = Array.from({ length: n }, () => 0);
         let tmp = Array.from({ length: m }, () => 0);
+
         function DFS(L) {
           if (L === m) {
             answer.push(tmp.slice());
@@ -24,31 +25,31 @@
             }
           }
         }
+        // let n = arr.length;
+        // let ch = Array.from({ length: m }, () => 0);
+
+        // function DFS(L) {
+        //   if (L === m) {
+        //     let tmp = "";
+        //     for (let i = 0; i < m; i++) {
+        //       if (ch[i] === ch[i + 1]) return;
+        //       tmp += ch[i] + " ";
+        //     }
+        //     answer.push(tmp);
+        //   } else {
+        //     for (let i = 0; i < n; i++) {
+        //       ch[L] = arr[i];
+        //       DFS(L + 1);
+        //     }
+        //   }
+        // }
+
         DFS(0);
         return answer;
       }
 
       let arr = [3, 6, 9];
       console.log(solution(2, arr));
-    </script>
-  </body>
-</html>
-
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>출력결과</title>
-  </head>
-  <body>
-    <script>
-      function solution(m, arr) {
-        let answer = [];
-
-        return answer;
-      }
-
-      let arr1 = [3, 6, 9];
-      console.log(solution(2, arr1));
     </script>
   </body>
 </html>

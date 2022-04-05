@@ -6,12 +6,21 @@
   <body>
     <script>
       function solution(n, r) {
-        let answer = [];
+        //메모제이션
+        let answer;
+        let memory = Array.from(Array(35), () => Array(35).fill(0));
+
+        function DFS(n, r) {
+          if (memory[n][r] !== 0) return memory[n][r];
+          if (n == r || r === 0) return 1;
+          else return (memory[n][r] = DFS(n - 1, r - 1) + DFS(n - 1, r));
+        }
+        answer = DFS(n, r);
 
         return answer;
       }
 
-      console.log(solution(5, 3));
+      console.log(solution(33, 19));
     </script>
   </body>
 </html>
