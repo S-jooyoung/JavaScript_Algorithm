@@ -7,6 +7,32 @@
     <script>
       function solution(n, arr) {
         let answer = 0;
+        let graphs = Array.from(Array(n + 1), () => []);
+        let check = Array.from({ length: n + 1 }, () => 0);
+        let test = [];
+
+        for ([a, b] of arr) graphs[a].push(b);
+
+        function DFS(node) {
+          if (node === n) {
+            answer++;
+            console.log(test);
+          } else {
+            for (let i = 0; i < graphs[node].length; i++) {
+              if (check[graphs[node][i]] === 0) {
+                check[graphs[node][i]] = 1;
+                test.push(graphs[node][i]);
+                DFS(graphs[node][i]);
+                check[graphs[node][i]] = 0;
+                test.pop();
+              }
+            }
+          }
+        }
+
+        check[1] = 1;
+        test.push(1);
+        DFS(1);
 
         return answer;
       }
