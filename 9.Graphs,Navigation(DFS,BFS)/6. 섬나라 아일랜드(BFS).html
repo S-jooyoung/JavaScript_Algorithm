@@ -8,6 +8,42 @@
       function solution(board) {
         let answer = 0;
 
+        // 위쪽, 오른위대각선, 오른쪽, 오른아래대각선, 아래, 아래왼쪽대각선, 왼쪽, 위왼쪽대각선
+        let dx = [-1, -1, 0, 1, 1, 1, 0, -1];
+        let dy = [0, 1, 1, 1, 0, -1, -1, -1];
+
+        let queue = [];
+
+        for (let i = 0; i < board.length; i++) {
+          for (let j = 0; j < board.length; j++) {
+            if (board[i][j] === 1) {
+              board[i][j] = 0;
+              queue.push([i, j]);
+              answer++;
+              while (queue.length) {
+                let [x, y] = queue.shift();
+                console.log(x, y);
+                for (let i = 0; i < dx.length; i++) {
+                  let nextX = x + dx[i];
+                  let nextY = y + dy[i];
+                  if (
+                    nextX >= 0 &&
+                    nextX < board.length &&
+                    nextY >= 0 &&
+                    nextY < board.length &&
+                    board[nextX][nextY] === 1
+                  ) {
+                    board[nextX][nextY] = 0;
+                    queue.push([nextX, nextY]);
+                  }
+                }
+              }
+              console.log("BFS end");
+            }
+          }
+        }
+        queue.push([0, 0]);
+
         return answer;
       }
 

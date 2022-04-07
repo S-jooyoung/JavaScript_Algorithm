@@ -7,6 +7,18 @@
     <script>
       function solution() {
         let answer = "";
+        let queue = [];
+        queue.push(1);
+
+        while (queue.length) {
+          let node = queue.shift();
+          answer += node + " ";
+
+          for (let nv of [node * 2, node * 2 + 1]) {
+            if (nv > 7) continue;
+            queue.push(nv);
+          }
+        }
 
         return answer;
       }
